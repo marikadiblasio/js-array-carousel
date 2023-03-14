@@ -12,11 +12,11 @@ Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella mile
 
 //Array
 const images = [
-    '../img/01.webp',
-    '../img/02.webp',
-    '../img/03.webp',
-    '../img/04.webp',
-    '../img/05.webp'
+    './img/01.webp',
+    './img/02.webp',
+    './img/03.webp',
+    './img/04.webp',
+    './img/05.webp'
 ]
 const slider = document.querySelector('.slider');
 let currentIndex = 0;
