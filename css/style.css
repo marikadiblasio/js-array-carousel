@@ -5,8 +5,9 @@
 }
 button {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    right: -6vw;
+    /*left: 50%;
+    transform: translateX(-50%); */
     z-index: 1000;
 }
 .prev {
