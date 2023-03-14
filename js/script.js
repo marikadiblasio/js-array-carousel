@@ -21,17 +21,26 @@ const images = [
 const slider = document.querySelector('.slider');
 let currentIndex = 0;
 let slides ='';
-//console.log(images);
+const thumbSlider = document.querySelector('.thumb-slider');
+let thumbs = '';
+//console.log(thumbSlider);
 //Ciclo for
 for (let i = 0; i < images.length; i++) {
     slides += `<div class="slide">
-                    <img src="${images[i]}" alt="img-${i}" class="object-fit-cover">
-               </div> `
+                    <img src="${images[i]}" alt="img-${i+1}" class="object-fit-cover">
+               </div> `;
+    thumbs += `<div class="thumb">
+                    <img src="${images[i]}" alt="img-${i+1}">
+               </div> `;
 }
-//console.log(slides);
+console.dir(slides);
+console.dir(thumbs);
 slider.innerHTML += `${slides}`;
-//console.log(slider);
+thumbSlider.innerHTML += `${thumbs}`;
+console.log(slider);
+console.dir(thumbSlider);
 document.querySelectorAll('.slide')[currentIndex].classList.add('active');
+document.querySelectorAll('.thumb')[currentIndex].classList.add('active');
 
 /*
 MILESTONE 3
