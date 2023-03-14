@@ -46,11 +46,19 @@ prev.addEventListener('click', goPrev);
 
 function goNext() {
     document.querySelectorAll('.slide')[currentIndex].classList.remove('active');
-    currentIndex++;
+    if (currentIndex === images.length -1){
+        currentIndex = 0;
+    } else {
+        currentIndex++;
+    }
     document.querySelectorAll('.slide')[currentIndex].classList.add('active');
 }
 function goPrev() {
     document.querySelectorAll('.slide')[currentIndex].classList.remove('active');
-    currentIndex--;
+    if (currentIndex === 0) {
+        currentIndex = images.length - 1;
+    } else {
+        currentIndex--;
+    }
     document.querySelectorAll('.slide')[currentIndex].classList.add('active');
 }
