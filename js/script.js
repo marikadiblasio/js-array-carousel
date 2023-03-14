@@ -33,12 +33,12 @@ for (let i = 0; i < images.length; i++) {
                     <img src="${images[i]}" alt="img-${i+1}">
                </div> `;
 }
-console.dir(slides);
-console.dir(thumbs);
+// console.dir(slides);
+// console.dir(thumbs);
 slider.innerHTML += `${slides}`;
 thumbSlider.innerHTML += `${thumbs}`;
-console.log(slider);
-console.dir(thumbSlider);
+// console.log(slider);
+// console.dir(thumbSlider);
 document.querySelectorAll('.slide')[currentIndex].classList.add('active');
 document.querySelectorAll('.thumb')[currentIndex].classList.add('active');
 
@@ -55,19 +55,23 @@ prev.addEventListener('click', goPrev);
 
 function goNext() {
     document.querySelectorAll('.slide')[currentIndex].classList.remove('active');
+    document.querySelectorAll('.thumb')[currentIndex].classList.remove('active');
     if (currentIndex === images.length -1){
         currentIndex = 0;
     } else {
         currentIndex++;
     }
     document.querySelectorAll('.slide')[currentIndex].classList.add('active');
+    document.querySelectorAll('.thumb')[currentIndex].classList.add('active');
 }
 function goPrev() {
     document.querySelectorAll('.slide')[currentIndex].classList.remove('active');
+    document.querySelectorAll('.thumb')[currentIndex].classList.remove('active');
     if (currentIndex === 0) {
         currentIndex = images.length - 1;
     } else {
         currentIndex--;
     }
     document.querySelectorAll('.slide')[currentIndex].classList.add('active');
+    document.querySelectorAll('.thumb')[currentIndex].classList.add('active');
 }
