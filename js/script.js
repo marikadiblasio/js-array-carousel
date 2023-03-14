@@ -19,6 +19,7 @@ const images = [
     '../img/05.webp'
 ]
 const slider = document.querySelector('.slider');
+let currentIndex = 0;
 let slides ='';
 //console.log(images);
 //Ciclo for
@@ -30,4 +31,26 @@ for (let i = 0; i < images.length; i++) {
 //console.log(slides);
 slider.innerHTML += `${slides}`;
 //console.log(slider);
-document.querySelectorAll('.slide')[0].classList.add('active');
+document.querySelectorAll('.slide')[currentIndex].classList.add('active');
+
+/*
+MILESTONE 3
+Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
+*/
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+//console.log(next, prev);
+
+next.addEventListener('click', goNext);
+prev.addEventListener('click', goPrev);
+
+function goNext() {
+    document.querySelectorAll('.slide')[currentIndex].classList.remove('active');
+    currentIndex++;
+    document.querySelectorAll('.slide')[currentIndex].classList.add('active');
+}
+function goPrev() {
+    document.querySelectorAll('.slide')[currentIndex].classList.remove('active');
+    currentIndex--;
+    document.querySelectorAll('.slide')[currentIndex].classList.add('active');
+}
