@@ -29,6 +29,15 @@ img {
 .slide {
     display: none;
 }
+.overlay{
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    }
 .slide.active {
     display: block;
 }

@@ -9,27 +9,56 @@ Adesso rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamica
 Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specifica che la renderà visibile.
 Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.*/
 //Array
+// const images = [
+//     './img/01.webp',
+//     './img/02.webp',
+//     './img/03.webp',
+//     './img/04.webp',
+//     './img/05.webp'
+// ]
+//Esercizio del 23/3 -trasformo l'array in array di oggetti
 const images = [
-    './img/01.webp',
-    './img/02.webp',
-    './img/03.webp',
-    './img/04.webp',
-    './img/05.webp'
-]
+    {
+        image: './img/01.webp',
+        title: 'Spiderman'
+    },
+    {
+        image: './img/02.webp',
+        title: 'Warrior cats'
+    },
+    {
+        image: './img/03.webp',
+        title: 'Superheros'
+    },
+    {
+        image: './img/04.webp',
+        title: 'Cat'
+    },
+    {
+        image: './img/05.webp',
+        title: 'Avengers'
+    }
+] //fine aggiunta del 23/3
 const slider = document.querySelector('.slider');
 let currentIndex = 0;
 let slides ='';
 const thumbSlider = document.querySelector('.thumb-slider');
 let thumbs = '';
 //Ciclo for
-for (let i = 0; i < images.length; i++) {
+//Sostituisco il for con il forEach (23/3)
+//for (let i = 0; i < images.length; i++) {
+images.forEach((value) =>{
     slides += `<div class="slide">
-                    <img src="${images[i]}" alt="img-${i+1}" class="object-fit-cover">
-               </div> `;
+                    <img src="${value.image}" alt="img-${value.title}" class="object-fit-cover">
+                    <div class="overlay">
+                    <h2 class="display-2  fw-bold text-center pt-5">${value.title}</h2>
+               </div> 
+                    </div>`;
+
     thumbs += `<div class="thumb">
-                    <img src="${images[i]}" alt="img-${i+1}">
+                    <img src="${value.image}" alt="img-${value.title}">
                </div> `;
-}
+});
 slider.innerHTML += `${slides}`;
 thumbSlider.innerHTML += `${thumbs}`;
 document.querySelectorAll('.slide')[currentIndex].classList.add('active');
@@ -66,3 +95,15 @@ function goPrev() {
     document.querySelectorAll('.slide')[currentIndex].classList.add('active');
     document.querySelectorAll('.thumb')[currentIndex].classList.add('active');
 }
+//Esercizio del 23/3
+let interval;
+function start (){
+    interval = setInterval(goNext, 1000);
+}
+function stop(){
+    clearInterval(interval);
+}
+const container = document.querySelector('.bg-black');
+start();
+container.addEventListener('mouseover', stop);
+container.addEventListener('mouseout', start);
